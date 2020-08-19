@@ -35,7 +35,7 @@ public class JobOpening {
         this.salary = salary;
         this.businessWebsite = businessWebsite;
         this.openingWebsite = openingWebsite;
-        this.date = date;
+        this.date = LocalDate.now();
     }
 
     public Long getId() {

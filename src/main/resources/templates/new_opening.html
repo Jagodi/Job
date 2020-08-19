@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!--set visible area of a web page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
+    <title>Add New Opening</title>
+</head>
+
+<body>
+<div class="container">
+
+    <h3>Add New Opening</h3>
+    <br>
+
+    <!-- # - empty place holder, th:action - process, th:object -model attribute-->
+    <form action="#"
+          th:action="@{/tmp/save}"
+          th:object="${newOpening}"
+          method="post">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}"/>
+
+        <!--th:field="*{}" - get a value-->
+
+        <!--class="form-control - bootstrap form setup-->
+        <!--col-4 - length of line-->
+        <!--mp-2 - sets margin-bottom. (m-margin, p-padding)(t - top, b- bottom, l - left etc.)(2 - size) = {property}{sides}{size}-->
+
+        <input type="text" th:field="*{name}" class="form-control col-4 mb-2" placeholder="Name">
+
+        <input type="text" th:field="*{salary}" class="form-control col-4 mb-2" placeholder="Salary">
+
+        <input type="text" th:field="*{businessWebsite}" class="form-control col-4 mb-2" placeholder="Business Website">
+
+        <input type="text" th:field="*{openingWebsite}" class="form-control col-4 mb-2" placeholder="Opening Website">
+
+        <input type="text" th:field="*{date}" class="form-control col-4 mb-2" placeholder="Date">
+
+        <!--class="btn btn-primary - primary button-->
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
+</div>
+</body>
+</html>

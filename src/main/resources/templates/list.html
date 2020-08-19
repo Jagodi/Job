@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+</head>
+
+<body>
+
+
+<!--Redirect to add page-->
+<a th:href="@{/tmp/new}">Add New Job Opening</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Job Opening ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Business Website</th>
+        <th>Opening Website</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="opening : ${jobOpenings}">
+        <td th:text="${opening.id}">Job Opening ID</td>
+        <td th:text="${opening.name}">Name</td>
+        <td th:text="${opening.salary}">Salary</td>
+        <td th:text="${opening.businessWebsite}">Business Website</td>
+        <td th:text="${opening.openingWebsite}">Opening Website</td>
+        <td th:text="${opening.date}">Date</td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
