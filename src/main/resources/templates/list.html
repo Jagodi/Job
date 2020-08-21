@@ -3,39 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
+    <!--set visible area of a web page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
 
     <title>Title</title>
 </head>
 
 <body>
+<div class="container">
 
 
-<!--Redirect to add page-->
-<a th:href="@{/tmp/new}">Add New Job Opening</a>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Business Website</th>
+            <th>Job Website</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
 
-<table border="1">
-    <thead>
-    <tr>
-        <th>Job Opening ID</th>
-        <th>Name</th>
-        <th>Salary</th>
-        <th>Business Website</th>
-        <th>Opening Website</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="opening : ${jobOpenings}">
-        <td th:text="${opening.id}">Job Opening ID</td>
-        <td th:text="${opening.name}">Name</td>
-        <td th:text="${opening.salary}">Salary</td>
-        <td th:text="${opening.businessWebsite}">Business Website</td>
-        <td th:text="${opening.openingWebsite}">Opening Website</td>
-        <td th:text="${opening.date}">Date</td>
-    </tr>
-    </tbody>
+        <tbody>
+        <tr th:each="job : ${jobs}">
+            <td th:text="${job.name}">Name</td>
+            <td th:text="${job.salary}">Salary</td>
+            <td th:text="${job.businessWebsite}">Business Website</td>
+            <td th:text="${job.jobWebsite}">Job Website</td>
+            <td th:text="${job.date}">Date</td>
+            <td>
+                <form action="#" th:action="@{/tmp/update}" method="POST">
 
-</table>
+                    <input type="hidden" name="jobId" th:value="${job.id}"/>
+                    <button type="submit" class="btn btn-success">Update</button>
 
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{/tmp/delete}" method="POST">
+
+                    <input type="hidden" name="jobId" th:value="${job.id}"/>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                </form>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <form action="#" th:action="@{/tmp/new}" method="GET">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+    </form>
+
+</div>
 </body>
 </html>

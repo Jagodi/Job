@@ -1,7 +1,7 @@
 package edu.devember.Job.service;
 
-import edu.devember.Job.model.JobOpening;
-import edu.devember.Job.repository.JobOpeningRepository;
+import edu.devember.Job.model.Job;
+import edu.devember.Job.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,30 +9,30 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JobOpeningServiceImp implements JobOpeningService {
+public class JobServiceImp implements JobService {
 
-    private final JobOpeningRepository repository;
+    private final JobRepository repository;
 
     @Autowired
-    public JobOpeningServiceImp(JobOpeningRepository repository) {
+    public JobServiceImp(JobRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public List<JobOpening> findAll() {
+    public List<Job> findAll() {
 
         return repository.findAll();
     }
 
     @Override
-    public Optional<JobOpening> findById(Long theId) {
+    public Optional<Job> findById(Long theId) {
 
         return repository.findById(theId);
     }
 
     @Override
-    public void save(JobOpening theJobOpening) {
-        repository.save(theJobOpening);
+    public void save(Job theJob) {
+        repository.save(theJob);
     }
 
     @Override

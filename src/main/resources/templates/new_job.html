@@ -16,14 +16,14 @@
 <body>
 <div class="container">
 
-    <h3>Add New Opening</h3>
+    <h3>Add New Job</h3>
     <br>
 
     <!-- # - empty place holder, th:action - process, th:object -model attribute-->
     <form action="#"
           th:action="@{/tmp/save}"
-          th:object="${newOpening}"
-          method="post">
+          th:object="${newJob}"
+          method="POST">
 
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}"/>
@@ -40,9 +40,9 @@
 
         <input type="text" th:field="*{businessWebsite}" class="form-control col-4 mb-2" placeholder="Business Website">
 
-        <input type="text" th:field="*{openingWebsite}" class="form-control col-4 mb-2" placeholder="Opening Website">
+        <input type="text" th:field="*{jobWebsite}" class="form-control col-4 mb-2" placeholder="Opening Website">
 
-        <input type="text" th:field="*{date}" class="form-control col-4 mb-2" placeholder="Date">
+        <input type="date" th:field="*{date}" class="form-control col-4 mb-2" placeholder="Date">
 
         <!--class="btn btn-primary - primary button-->
         <button type="submit" class="btn btn-primary">Save</button>

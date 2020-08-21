@@ -1,11 +1,13 @@
 package edu.devember.Job.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "job_opening")
-public class JobOpening {
+@Table(name = "job")
+public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,26 +23,31 @@ public class JobOpening {
     @Column(name = "business_website")
     private String businessWebsite;
 
-    @Column(name = "opening_website")
-    private String openingWebsite;
+    @Column(name = "job_website")
+    private String jobWebsite;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date")
     private LocalDate date;
 
-    public JobOpening() {
+    public Job() {
     }
 
-    public JobOpening(String name, int salary, String businessWebsite, String openingWebsite, LocalDate date) {
+    public Job(String name, int salary, String businessWebsite, String jobWebsite, LocalDate date) {
         this.name = name;
         this.salary = salary;
         this.businessWebsite = businessWebsite;
-        this.openingWebsite = openingWebsite;
-        this.date = LocalDate.now();
+        this.jobWebsite = jobWebsite;
+        this.date = date;
     }
 
     public Long getId() {
 
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -67,12 +74,12 @@ public class JobOpening {
         this.businessWebsite = businessWebsite;
     }
 
-    public String getOpeningWebsite() {
-        return openingWebsite;
+    public String getJobWebsite() {
+        return jobWebsite;
     }
 
-    public void setOpeningWebsite(String openingWebsite) {
-        this.openingWebsite = openingWebsite;
+    public void setJobWebsite(String jobWebsite) {
+        this.jobWebsite = jobWebsite;
     }
 
     public LocalDate getDate() {
@@ -85,12 +92,12 @@ public class JobOpening {
 
     @Override
     public String toString() {
-        return "JobOpening{" +
+        return "Job{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 ", businessWebsite='" + businessWebsite + '\'' +
-                ", openingWebsite='" + openingWebsite + '\'' +
+                ", jobWebsite='" + jobWebsite + '\'' +
                 ", date=" + date +
                 '}';
     }
