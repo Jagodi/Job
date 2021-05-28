@@ -15,6 +15,7 @@ public class JobServiceImp implements JobService {
 
     @Autowired
     public JobServiceImp(JobRepository repository) {
+
         this.repository = repository;
     }
 
@@ -32,11 +33,13 @@ public class JobServiceImp implements JobService {
 
     @Override
     public void save(Job theJob) {
+
         repository.save(theJob);
     }
 
     @Override
     public void deleteById(Long theId) {
+
         repository.deleteById(theId);
     }
 }

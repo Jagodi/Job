@@ -16,7 +16,7 @@
 <body>
 <div class="container">
 
-    <h3>Add New Job</h3>
+    <h3>Add/Update Job</h3>
     <br>
 
     <!-- # - empty place holder, th:action - process, th:object -model attribute-->
@@ -33,10 +33,10 @@
         <!--class="form-control - bootstrap form setup-->
         <!--col-4 - length of line-->
         <!--mp-2 - sets margin-bottom. (m-margin, p-padding)(t - top, b- bottom, l - left etc.)(2 - size) = {property}{sides}{size}-->
+        <input type="text" th:field="*{name}" class="form-control col-4 mb-2" placeholder="Name" required>
+        <div class="invalid-feedback">Please choose a username.</div>
 
-        <input type="text" th:field="*{name}" class="form-control col-4 mb-2" placeholder="Name">
-
-        <input type="text" th:field="*{salary}" class="form-control col-4 mb-2" placeholder="Salary">
+        <input type="number" th:field="*{salary}" class="form-control col-4 mb-2" placeholder="Salary">
 
         <input type="text" th:field="*{businessWebsite}" class="form-control col-4 mb-2" placeholder="Business Website">
 

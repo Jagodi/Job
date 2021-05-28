@@ -14,42 +14,8 @@ import java.util.Optional;
 @RequestMapping("/tmp")
 public class JobController {
 
-    //List<Job> testList;
-
     @Autowired
     private JobService service;
-
-    /*@PostConstruct
-    private void loadTestData() {
-
-        testList = new ArrayList<>();
-
-        Job jo1 = new Job(
-                "Tinkoff",
-                100000,
-                "https://www.tinkoff.ru/",
-                "https://www.hh/tinkoff.ru/",
-                LocalDate.of(2020, 1, 23));
-
-        Job jo2 = new Job(
-                "Sberbank",
-                100000,
-                "https://www.sberbank.ru/",
-                "https://www.hh/sberbank.ru/",
-                LocalDate.of(2020, 3, 4));
-
-        Job jo3 = new Job(
-                "Yandex",
-                100000,
-                "https://www.yandex.ru/",
-                "https://www.hh/yandex.ru/",
-                LocalDate.of(2020, 6, 30));
-
-        testList.add(jo1);
-        testList.add(jo2);
-        testList.add(jo3);
-
-    }*/
 
     @GetMapping("/list")
     public String jobList(Model theModel) {
@@ -65,6 +31,7 @@ public class JobController {
     public String showNewJobPage(Model model) {
 
         Job theJob = new Job();
+
         model.addAttribute("newJob", theJob);
 
         return "new_job";
@@ -96,13 +63,9 @@ public class JobController {
             theJob = optionalJob.get();
             model.addAttribute("newJob", theJob);
         } else {
-            throw new RuntimeException("Did not find job id - " + theId);
+            throw new RuntimeException("Did not find the job id - " + theId);
         }
 
-
         return "new_job";
-
     }
-
-
 }

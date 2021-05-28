@@ -14,4 +14,5 @@ public interface JobService {
     void save(Job theJob);
 
     void deleteById(Long theId);
+
 }
