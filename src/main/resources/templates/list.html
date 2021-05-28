@@ -15,10 +15,17 @@
 </head>
 
 <body>
+
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+    </ol>
+</nav>
+
 <div class="container">
 
     <table class="table table-bordered">
-        <thead class="thead-dark">
+        <thead class="thead-dark text-center">
         <tr>
             <th>Name</th>
             <th>Salary</th>
@@ -30,9 +37,9 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="text-center">
         <tr th:each="job : ${jobs}">
-            <td th:text="${job.name}">Name</td>
+            <td th:text="${job.name}" >Name</td>
             <td th:text="${job.salary}">Salary</td>
             <td th:text="${job.businessWebsite}">Business Website</td>
             <td th:text="${job.jobWebsite}">Job Website</td>
@@ -49,7 +56,7 @@
                 <form action="#" th:action="@{/tmp/delete}" method="POST">
 
                     <input type="hidden" name="jobId" th:value="${job.id}"/>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger ">Delete</button>
 
                 </form>
             </td>
@@ -60,7 +67,7 @@
 
     <!--long button-->
     <form action="#" th:action="@{/tmp/new}" method="GET">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Add The Vacancy</button>
     </form>
 
 </div>

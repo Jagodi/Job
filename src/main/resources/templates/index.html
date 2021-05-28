@@ -2,13 +2,26 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <!--set visible area of a web page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--bootstrap-->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
     <title>Start Page</title>
 </head>
 
 <body>
 
-<!--Redirect to add page-->
-<a th:href="@{tmp/list}">List Of Job Openings!</a>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+        <li class="breadcrumb-item"><a th:href="@{tmp/list}">Current Job List</a></li>
+        <li class="breadcrumb-item"><a th:href="@{tmp/new?}">Add A New Vacancy</a></li>
+    </ol>
+</nav>
 
 </body>
 </html>

@@ -14,9 +14,17 @@
 </head>
 
 <body>
+
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{~/tmp/list}">Current Job List</a></li>
+    </ol>
+</nav>
+
 <div class="container">
 
-    <h3>Add/Update Job</h3>
+    <h3>Here you can add or edit the job</h3>
     <br>
 
     <!-- # - empty place holder, th:action - process, th:object -model attribute-->
@@ -36,7 +44,7 @@
         <input type="text" th:field="*{name}" class="form-control col-4 mb-2" placeholder="Name" required>
         <div class="invalid-feedback">Please choose a username.</div>
 
-        <input type="number" th:field="*{salary}" class="form-control col-4 mb-2" placeholder="Salary">
+        <input type="number" th:field="*{salary}" class="form-control col-4 mb-2"  placeholder="Salary" >
 
         <input type="text" th:field="*{businessWebsite}" class="form-control col-4 mb-2" placeholder="Business Website">
 
